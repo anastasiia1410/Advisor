@@ -18,9 +18,7 @@ import java.net.UnknownHostException;
 import java.util.List;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.core.SingleSource;
 import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.functions.Function;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class DraftsViewModel extends BaseViewModel {
@@ -52,7 +50,7 @@ public class DraftsViewModel extends BaseViewModel {
                                 user.getUserName(),
                                 drafts.getTitle(),
                                 drafts.getTextReview()
-                                )
+                        )
                 )
                 .toSingle(() -> true)
                 .concatMap(aBoolean -> database.updateStatusAsync(drafts, DraftStatus.Sent))

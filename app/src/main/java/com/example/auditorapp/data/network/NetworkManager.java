@@ -1,6 +1,7 @@
 package com.example.auditorapp.data.network;
 
 import android.content.Context;
+
 import com.example.auditorapp.core.App;
 import com.example.auditorapp.core.AppPreference;
 import com.example.auditorapp.data.network.entity.DetailsRequest;
@@ -10,11 +11,11 @@ import com.example.auditorapp.data.network.entity.SignUpResponse;
 import com.example.auditorapp.entity.review.Review;
 import com.example.auditorapp.entity.user.User;
 import com.google.gson.Gson;
+
 import java.util.List;
+
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Single;
-import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.functions.Function;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -22,8 +23,6 @@ import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetworkManager {
-    private final Retrofit retrofit;
-    private final OkHttpClient client;
     private final Gson gson;
     private final AppPreference appPreference;
     private final Api api;
@@ -33,11 +32,11 @@ public class NetworkManager {
         gson = new Gson();
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        client = new OkHttpClient.Builder()
+        OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(interceptor)
                 .build();
 
-        retrofit = new Retrofit.Builder()
+        Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://parseapi.back4app.com/")
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(gson))
@@ -80,13 +79,14 @@ public class NetworkManager {
     public Single<Review> getReviewsDetail(String objectId) {
         String token = appPreference.getToken();
         DetailsRequest request = new DetailsRequest();
+
         request.setObjectId(objectId);
         String json = gson.toJson(request);
         return api.getReviewById(token, json)
                 .map(reviewDetailsRequest -> reviewDetailsRequest.getResults().get(0));
     }
 
-    public Completable deleteReview(String objectId){
+    public Completable deleteReview(String objectId) {
         String token = appPreference.getToken();
         return api.deleteReview(token, objectId);
     }

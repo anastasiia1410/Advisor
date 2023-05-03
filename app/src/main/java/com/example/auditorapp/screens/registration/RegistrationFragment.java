@@ -23,7 +23,11 @@ import java.util.Objects;
 public class RegistrationFragment extends BaseFragment<FragmentRegistrationBinding, RegistrationViewModel> {
 
     @Override
-    protected FragmentRegistrationBinding createBinding(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    protected FragmentRegistrationBinding createBinding(
+            LayoutInflater inflater,
+            ViewGroup container,
+            Bundle savedInstanceState
+    ) {
         return FragmentRegistrationBinding.inflate(inflater, container, false);
     }
 
@@ -46,13 +50,20 @@ public class RegistrationFragment extends BaseFragment<FragmentRegistrationBindi
         viewModel.getTokenLD().observe(getViewLifecycleOwner(), s -> {
             NavController navController = NavHostFragment
                     .findNavController(RegistrationFragment.this);
-            NavDirections action = RegistrationFragmentDirections.actionRegistrationFragmentToReviewsFragment();
+            NavDirections action =
+                    RegistrationFragmentDirections.actionRegistrationFragmentToReviewsFragment();
             navController.navigate(action);
         });
         viewModel.getNoInternetErrorLD().observe(getViewLifecycleOwner(), throwable ->
-                showSnackBar(requireContext(), binding.btLogin, "Sorry, no internet connection"));
+                showSnackBar(
+                        requireContext(),
+                        binding.btLogin,
+                        "Sorry, no internet connection"));
         viewModel.getTimeOutErrorLD().observe(getViewLifecycleOwner(), throwable ->
-                showSnackBar(requireContext(), binding.btLogin, "Sorry, server is not responding"));
+                showSnackBar(
+                        requireContext(),
+                        binding.btLogin,
+                        "Sorry, server is not responding"));
 
         binding.btLogin.setOnClickListener(v -> {
             User user = new User();

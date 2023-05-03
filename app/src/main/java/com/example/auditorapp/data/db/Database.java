@@ -3,14 +3,17 @@ package com.example.auditorapp.data.db;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
 import com.example.auditorapp.entity.DraftStatus;
 import com.example.auditorapp.entity.drafts.Drafts;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Single;
 
@@ -141,16 +144,16 @@ public class Database {
     }
 
     private void updateStatus(Drafts drafts, DraftStatus draftStatus) {
-           String str = String.format(Locale.getDefault(),
-                   "UPDATE Drafts SET status='%s' WHERE id=%d",
-                   draftStatus.name(), drafts.getId());
-           database.execSQL(str);
+        String str = String.format(Locale.getDefault(),
+                "UPDATE Drafts SET status='%s' WHERE id=%d",
+                draftStatus.name(), drafts.getId());
+        database.execSQL(str);
     }
 
-    public Single<Drafts> updateStatusAsync(Drafts drafts, DraftStatus draftStatus){
+    public Single<Drafts> updateStatusAsync(Drafts drafts, DraftStatus draftStatus) {
         return Single.create(emitter -> {
             Database.this.updateStatus(drafts, draftStatus);
-            if(!emitter.isDisposed()) {
+            if (!emitter.isDisposed()) {
                 emitter.onSuccess(drafts);
             }
         });

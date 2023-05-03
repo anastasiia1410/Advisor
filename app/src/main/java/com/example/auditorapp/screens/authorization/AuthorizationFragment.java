@@ -4,12 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
+
 import com.example.auditorapp.R;
 import com.example.auditorapp.core.BaseFragment;
 import com.example.auditorapp.databinding.FragmentAuthorizationBinding;
@@ -58,7 +60,7 @@ public class AuthorizationFragment extends BaseFragment<FragmentAuthorizationBin
         viewModel.getNoInternetErrorLD().observe(getViewLifecycleOwner(), throwable ->
                 showSnackBar(requireContext(), binding.btLogin, "Sorry, no internet connection"));
         viewModel.getTimeOutErrorLD().observe(getViewLifecycleOwner(), throwable ->
-        showSnackBar(requireContext(), binding.btLogin, "Sorry, server is not responding"));
+                showSnackBar(requireContext(), binding.btLogin, "Sorry, server is not responding"));
 
         binding.tvCreateNewAcc.setOnClickListener(v -> {
             NavController navController = NavHostFragment

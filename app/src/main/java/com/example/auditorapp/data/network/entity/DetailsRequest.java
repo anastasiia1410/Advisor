@@ -8,7 +8,6 @@ public class DetailsRequest {
     private String address;
     private String author;
 
-
     public String getObjectId() {
         return objectId;
     }

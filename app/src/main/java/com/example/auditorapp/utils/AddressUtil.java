@@ -9,11 +9,10 @@ public class AddressUtil {
             str = address.getPostalCode() + ", " + address.getLocality()
                     + ", " + address.getThoroughfare()
                     + ", " + address.getSubThoroughfare();
-        }else {
+        } else {
             str = address.getPostalCode() + ", " + address.getLocality()
                     + ", " + address.getSubLocality();
         }
-
         return str;
     }
 }

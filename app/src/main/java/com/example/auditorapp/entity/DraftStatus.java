@@ -3,7 +3,6 @@ package com.example.auditorapp.entity;
 public enum DraftStatus {
     ReadyToSend, Sending, Sent;
 
-
     public static DraftStatus byStatus(String status) {
         DraftStatus[] draftStatuses = DraftStatus.values();
         for (DraftStatus draftStatus : draftStatuses) {

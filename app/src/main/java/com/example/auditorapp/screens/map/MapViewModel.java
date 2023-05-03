@@ -1,13 +1,16 @@
 package com.example.auditorapp.screens.map;
 
 import android.app.Application;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+
 import com.example.auditorapp.core.App;
 import com.example.auditorapp.core.BaseViewModel;
 import com.example.auditorapp.data.location.LocationManager;
 import com.google.android.gms.maps.model.LatLng;
+
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.Disposable;
 
@@ -35,12 +38,12 @@ public class MapViewModel extends BaseViewModel {
         compositeDisposable.add(disposable);
     }
 
-    public void saveLocation(LatLng latlng){
-       Disposable disposable = locationManager.getAddress(latlng)
+    public void saveLocation(LatLng latlng) {
+        Disposable disposable = locationManager.getAddress(latlng)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(addressLD::postValue);
-       compositeDisposable.add(disposable);
+        compositeDisposable.add(disposable);
     }
 
     public LiveData<LatLng> getLatLngLD() {

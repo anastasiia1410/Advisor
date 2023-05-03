@@ -4,20 +4,26 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
+
 import com.example.auditorapp.core.BaseFragment;
 import com.example.auditorapp.databinding.FragmentReviewDatailsBinding;
 import com.example.auditorapp.utils.TextUtil;
 
 public class ReviewDetailFragment extends BaseFragment<FragmentReviewDatailsBinding, ReviewDetailViewModel> {
-    public static final String UPD_KEY  = "key";
+    public static final String UPD_KEY = "key";
 
     @Override
-    protected FragmentReviewDatailsBinding createBinding(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    protected FragmentReviewDatailsBinding createBinding(
+            LayoutInflater inflater,
+            ViewGroup container,
+            Bundle savedInstanceState
+    ) {
         return FragmentReviewDatailsBinding.inflate(inflater, container, false);
     }
 
@@ -44,13 +50,15 @@ public class ReviewDetailFragment extends BaseFragment<FragmentReviewDatailsBind
             viewModel.deleteReview(objectId);
             Bundle bundle = new Bundle();
             getParentFragmentManager().setFragmentResult(UPD_KEY, bundle);
-            showToast("Рецензію було успішно видалено");
-            NavController navController = NavHostFragment.findNavController(ReviewDetailFragment.this);
+            showToast();
+            NavController navController =
+                    NavHostFragment.findNavController(ReviewDetailFragment.this);
             navController.popBackStack();
         });
 
         binding.tvTitle.setOnClickListener(v -> {
-            NavController navController = NavHostFragment.findNavController(ReviewDetailFragment.this);
+            NavController navController =
+                    NavHostFragment.findNavController(ReviewDetailFragment.this);
             navController.popBackStack();
         });
     }

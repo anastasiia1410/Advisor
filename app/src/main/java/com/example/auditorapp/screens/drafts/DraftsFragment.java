@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
@@ -11,6 +12,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.example.auditorapp.core.BaseFragment;
 import com.example.auditorapp.databinding.FragmentDraftsBinding;
 import com.example.auditorapp.screens.drafts_detail.DraftsDetailFragment;
@@ -45,7 +47,7 @@ public class DraftsFragment extends BaseFragment<FragmentDraftsBinding, DraftsVi
         getParentFragmentManager()
                 .setFragmentResultListener(DraftsDetailFragment.KEY_TO_UPDATE,
                         this, (requestKey, result) ->
-                   viewModel.getDraftsReviews());
+                                viewModel.getDraftsReviews());
 
         viewModel.getDraftsLD().observe(getViewLifecycleOwner(), drafts -> adapter.updateItems(drafts));
 
@@ -67,8 +69,6 @@ public class DraftsFragment extends BaseFragment<FragmentDraftsBinding, DraftsVi
             NavController navController = NavHostFragment.findNavController(DraftsFragment.this);
             navController.popBackStack();
         });
-
-
 
 
     }

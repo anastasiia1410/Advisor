@@ -9,24 +9,22 @@ import com.example.auditorapp.entity.drafts.Drafts;
 
 public class DraftsStatusUtil {
 
-    public static void showDraftsStatus(Drafts drafts, TextView send, TextView sending, TextView sent){
+    public static void showDraftsStatus(Drafts drafts, TextView send, TextView sending, TextView sent) {
 
-        if(drafts.getStatus() == DraftStatus.ReadyToSend){
+        if (drafts.getStatus() == DraftStatus.ReadyToSend) {
             send.setVisibility(View.VISIBLE);
             sent.setVisibility(View.GONE);
             sending.setVisibility(View.GONE);
         }
-        if(drafts.getStatus() == DraftStatus.Sending){
+        if (drafts.getStatus() == DraftStatus.Sending) {
             sending.setVisibility(View.VISIBLE);
             send.setVisibility(View.GONE);
             sent.setVisibility(View.GONE);
         }
-        if(drafts.getStatus() == DraftStatus.Sent){
+        if (drafts.getStatus() == DraftStatus.Sent) {
             sent.setVisibility(View.VISIBLE);
             sending.setVisibility(View.GONE);
             send.setVisibility(View.GONE);
         }
-
     }
-
 }

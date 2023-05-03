@@ -11,12 +11,10 @@ public class AppPreference {
     private static final String START_KEY = "start_key";
     private final SharedPreferences sharedPreferences;
 
-
     public AppPreference(Context context) {
         sharedPreferences = context.getSharedPreferences(APP_PREFERENCE_NAME, Context.MODE_PRIVATE);
         isFirstStart = context.getSharedPreferences(IS_FIRST_START, Context.MODE_PRIVATE);
     }
-
 
     public boolean getStart() {
         return isFirstStart.getBoolean(START_KEY, true);
@@ -31,7 +29,6 @@ public class AppPreference {
     public String getToken() {
         return sharedPreferences.getString(TOKEN_KEY, null);
     }
-
 
     public void saveToken(String token) {
         sharedPreferences.edit()

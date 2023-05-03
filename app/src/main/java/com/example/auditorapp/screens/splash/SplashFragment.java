@@ -4,12 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
+
 import com.example.auditorapp.core.BaseFragment;
 import com.example.auditorapp.databinding.FragmentSplashScreenBinding;
 
@@ -21,7 +23,11 @@ public class SplashFragment extends BaseFragment<FragmentSplashScreenBinding, Sp
     }
 
     @Override
-    protected FragmentSplashScreenBinding createBinding(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    protected FragmentSplashScreenBinding createBinding(
+            LayoutInflater inflater,
+            ViewGroup container,
+            Bundle savedInstanceState
+    ) {
         return FragmentSplashScreenBinding.inflate(inflater, container, false);
     }
 
@@ -30,7 +36,8 @@ public class SplashFragment extends BaseFragment<FragmentSplashScreenBinding, Sp
         super.onViewCreated(view, savedInstanceState);
 
         viewModel.getScreensLD().observe(getViewLifecycleOwner(), screensNavigate -> {
-            NavController navController = NavHostFragment.findNavController(SplashFragment.this);
+            NavController navController =
+                    NavHostFragment.findNavController(SplashFragment.this);
             NavDirections action;
             switch (screensNavigate) {
                 case IntroScreen:
@@ -47,9 +54,7 @@ public class SplashFragment extends BaseFragment<FragmentSplashScreenBinding, Sp
                     break;
             }
         });
-
         viewModel.startTick();
-
     }
 }
 

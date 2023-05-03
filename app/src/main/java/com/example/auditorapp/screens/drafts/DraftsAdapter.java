@@ -17,7 +17,7 @@ import com.example.auditorapp.utils.OnDraftsClick;
 import java.util.ArrayList;
 import java.util.List;
 
-public class  DraftsAdapter extends RecyclerView.Adapter<DraftsAdapter.VH> {
+public class DraftsAdapter extends RecyclerView.Adapter<DraftsAdapter.VH> {
     private List<Drafts> draftsList = new ArrayList<>();
     private OnDraftsClick onClick;
     private OnButtonSendClick onSendClick;
@@ -38,9 +38,9 @@ public class  DraftsAdapter extends RecyclerView.Adapter<DraftsAdapter.VH> {
                 holder.binding.tvSent);
         holder.binding.tvTitle.setText(drafts.getTitle());
         holder.binding.tvTextReview.setText(drafts.getTextReview());
-        if(drafts.getImage().equals("null")){
+        if (drafts.getImage().equals("null")) {
             holder.binding.ivPhoto.setVisibility(View.GONE);
-        }else{
+        } else {
             holder.binding.ivPhoto.setVisibility(View.VISIBLE);
             ImageUtil.load(holder.binding.ivPhoto, drafts.getImage());
         }

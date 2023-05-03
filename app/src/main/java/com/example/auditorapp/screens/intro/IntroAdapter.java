@@ -2,10 +2,13 @@ package com.example.auditorapp.screens.intro;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.auditorapp.databinding.ItemIntroBinding;
 import com.example.auditorapp.entity.intro.IntroData;
+
 import java.util.ArrayList;
 import java.util.List;
 

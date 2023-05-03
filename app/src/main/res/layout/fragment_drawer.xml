@@ -93,6 +93,4 @@
             android:text="@string/settings"
             android:textColor="@color/black" />
     </androidx.cardview.widget.CardView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

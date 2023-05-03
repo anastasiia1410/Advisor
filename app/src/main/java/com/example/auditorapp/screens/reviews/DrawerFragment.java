@@ -28,14 +28,19 @@ public class DrawerFragment extends BaseFragment<FragmentDrawerBinding, DrawerVi
     }
 
     @Override
-    protected FragmentDrawerBinding createBinding(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    protected FragmentDrawerBinding createBinding(
+            LayoutInflater inflater,
+            ViewGroup container,
+            Bundle savedInstanceState
+    ) {
         return FragmentDrawerBinding.inflate(inflater, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewModel.getUserLD().observe(getViewLifecycleOwner(), user -> binding.tvUserEmail.setText(user.getUserName()));
+        viewModel.getUserLD().observe(getViewLifecycleOwner(),
+                user -> binding.tvUserEmail.setText(user.getUserName()));
 
         binding.cvReviews.setOnClickListener(v -> actionViewModel.onReviewsClick());
 

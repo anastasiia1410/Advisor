@@ -14,7 +14,6 @@ public class App extends Application {
     private Database database;
     private LocationManager locationManager;
 
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -40,7 +39,7 @@ public class App extends Application {
         return locationManager;
     }
 
-    public static App getInstance(Context context){
+    public static App getInstance(Context context) {
         return ((App) context.getApplicationContext());
     }
 }

@@ -1,13 +1,17 @@
 package com.example.auditorapp.screens.splash;
 
 import android.app.Application;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
+
 import com.example.auditorapp.core.App;
 import com.example.auditorapp.core.AppPreference;
 import com.example.auditorapp.core.BaseViewModel;
 import com.example.auditorapp.entity.StartScreen;
+
 import java.util.concurrent.TimeUnit;
+
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.disposables.Disposable;
@@ -21,7 +25,6 @@ public class SplashViewModel extends BaseViewModel {
     public SplashViewModel(@NonNull Application application) {
         super(application);
         appPreference = App.getInstance(application.getApplicationContext()).getAppPreference();
-
     }
 
     public void startTick() {
@@ -45,5 +48,4 @@ public class SplashViewModel extends BaseViewModel {
     public MutableLiveData<StartScreen> getScreensLD() {
         return screensLD;
     }
-
 }

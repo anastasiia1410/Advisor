@@ -1,27 +1,17 @@
 package com.example.auditorapp.screens.drafts_detail;
 
 import android.app.Application;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
 import com.example.auditorapp.core.App;
-import com.example.auditorapp.core.AppPreference;
 import com.example.auditorapp.core.BaseViewModel;
 import com.example.auditorapp.data.db.Database;
 import com.example.auditorapp.data.network.NetworkManager;
 import com.example.auditorapp.entity.DraftStatus;
-import com.example.auditorapp.entity.drafts.DraftAndUser;
 import com.example.auditorapp.entity.drafts.Drafts;
-import com.example.auditorapp.entity.user.User;
-
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
-import io.reactivex.rxjava3.core.CompletableSource;
-import io.reactivex.rxjava3.core.SingleSource;
 import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.functions.Consumer;
-import io.reactivex.rxjava3.functions.Function;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 

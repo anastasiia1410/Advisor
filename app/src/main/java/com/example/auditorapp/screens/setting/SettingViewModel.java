@@ -1,11 +1,14 @@
 package com.example.auditorapp.screens.setting;
 
 import android.app.Application;
+
 import androidx.annotation.NonNull;
+
 import com.example.auditorapp.core.App;
 import com.example.auditorapp.core.AppPreference;
 import com.example.auditorapp.core.BaseViewModel;
 import com.example.auditorapp.data.network.NetworkManager;
+
 import io.reactivex.rxjava3.disposables.Disposable;
 
 public class SettingViewModel extends BaseViewModel {
@@ -19,7 +22,7 @@ public class SettingViewModel extends BaseViewModel {
         clearCurrentUser();
     }
 
-    private void clearCurrentUser(){
+    private void clearCurrentUser() {
         Disposable disposable = networkManager.getCurrentUser()
                 .subscribe(value -> {
                     value.clearUser(value);

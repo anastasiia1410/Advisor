@@ -4,11 +4,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
+
 import com.example.auditorapp.core.BaseFragment;
 import com.example.auditorapp.databinding.FragmentSettingsBinding;
 
@@ -21,7 +23,11 @@ public class SettingFragment extends BaseFragment<FragmentSettingsBinding, Setti
     }
 
     @Override
-    protected FragmentSettingsBinding createBinding(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    protected FragmentSettingsBinding createBinding(
+            LayoutInflater inflater,
+            ViewGroup container,
+            Bundle savedInstanceState
+    ) {
         return FragmentSettingsBinding.inflate(inflater, container, false);
     }
 
@@ -29,12 +35,14 @@ public class SettingFragment extends BaseFragment<FragmentSettingsBinding, Setti
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         createInsets();
         super.onViewCreated(view, savedInstanceState);
-        NavController navController = NavHostFragment.findNavController(SettingFragment.this);
+        NavController navController =
+                NavHostFragment.findNavController(SettingFragment.this);
 
         binding.tvSetting.setOnClickListener(v -> navController.popBackStack());
 
         binding.tvExit.setOnClickListener(v -> {
-            NavDirections action = SettingFragmentDirections.actionSettingFragmentToAuthorizationFragment();
+            NavDirections action =
+                    SettingFragmentDirections.actionSettingFragmentToAuthorizationFragment();
             navController.navigate(action);
         });
 

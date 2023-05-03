@@ -12,7 +12,6 @@ import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 
@@ -35,12 +34,7 @@ public class AuthorizationViewModel extends BaseViewModel {
                 .doFinally(() -> setTextLD.postValue(false))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<String>() {
-                    @Override
-                    public void accept(String value) throws Throwable {
-                        tokenLD.postValue(value);
-                    }
-                }, throwable -> {
+                .subscribe(tokenLD::postValue, throwable -> {
                     if (throwable instanceof UnknownHostException) {
                         noInternetErrorLD.postValue(throwable);
                     } else if (throwable instanceof SocketTimeoutException) {

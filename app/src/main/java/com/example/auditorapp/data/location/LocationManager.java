@@ -5,14 +5,17 @@ import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+
 import com.example.auditorapp.utils.AddressUtil;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.Priority;
 import com.google.android.gms.maps.model.LatLng;
+
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.CancellationException;
+
 import io.reactivex.rxjava3.core.Single;
 
 

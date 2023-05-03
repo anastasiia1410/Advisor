@@ -2,8 +2,10 @@ package com.example.auditorapp.screens.reviews;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.auditorapp.databinding.ItemReviewsBinding;
 import com.example.auditorapp.entity.review.Review;
 import com.example.auditorapp.utils.OnReviewClick;
@@ -14,10 +16,12 @@ import java.util.List;
 public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.VH> {
     private List<Review> reviewList = new ArrayList<>();
     private OnReviewClick onReviewClick;
+
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new VH(ItemReviewsBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        return new VH(ItemReviewsBinding.inflate(
+                LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
@@ -26,9 +30,8 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.VH> {
         holder.binding.tvTitle.setText(review.getTitle());
         holder.binding.tvTextReview.setText(review.getText());
         holder.binding.tvUserName.setText(review.getAuthor());
-        holder.binding.cvCardView.setOnClickListener(v -> onReviewClick.onClick(review.getObjectId()));
-
-
+        holder.binding.cvCardView.setOnClickListener(v ->
+                onReviewClick.onClick(review.getObjectId()));
     }
 
     @Override
@@ -45,7 +48,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.VH> {
         this.onReviewClick = onReviewClick;
     }
 
-    static class VH extends  RecyclerView.ViewHolder{
+    static class VH extends RecyclerView.ViewHolder {
         private final ItemReviewsBinding binding;
 
         public VH(ItemReviewsBinding binding) {

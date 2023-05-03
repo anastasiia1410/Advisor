@@ -48,10 +48,10 @@
             android:drawablePadding="8dp"
             android:text="@string/send"
             android:textColor="#D42488"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@id/ivPhoto"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:visibility="gone"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvSent"
@@ -63,10 +63,10 @@
             android:drawablePadding="8dp"
             android:text="@string/sent"
             android:textColor="#D42488"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@id/ivPhoto"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:visibility="gone"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -75,12 +75,12 @@
             android:layout_height="100dp"
             android:layout_marginVertical="16dp"
             android:scaleType="centerCrop"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/tvUserName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTitle"
-            app:layout_constraintBottom_toTopOf="@id/tvUserName"
-            tools:srcCompat="@drawable/ic_launcher_background"
-            android:visibility="gone"/>
+            tools:srcCompat="@drawable/ic_launcher_background" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvUserName"
@@ -130,6 +130,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTextReview"
             tools:text="dfvjejvrfmk" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

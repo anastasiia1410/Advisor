@@ -39,12 +39,20 @@ public class MapFragment extends BaseFragment<FragmentMapBinding, MapViewModel> 
                 new ActivityResultContracts.RequestMultiplePermissions();
         ActivityResultLauncher<String[]> locationPermissionRequest =
                 registerForActivityResult(contracts, result -> {
-                            boolean fineLocationGranted = PermissionUtil.getOrDefault(result, Manifest.permission.ACCESS_FINE_LOCATION);
-                            boolean coarseLocationGranted = PermissionUtil.getOrDefault(result, Manifest.permission.ACCESS_COARSE_LOCATION);
+                            boolean fineLocationGranted = PermissionUtil
+                                    .getOrDefault(
+                                            result,
+                                            Manifest.permission.ACCESS_FINE_LOCATION);
+                            boolean coarseLocationGranted = PermissionUtil
+                                    .getOrDefault(
+                                            result,
+                                            Manifest.permission.ACCESS_COARSE_LOCATION);
                             if (fineLocationGranted && coarseLocationGranted) {
                                 viewModel.loadCurrentLocation();
                             } else {
-                                NavController navController = NavHostFragment.findNavController(MapFragment.this);
+                                NavController navController =
+                                        NavHostFragment
+                                                .findNavController(MapFragment.this);
                                 navController.popBackStack();
                             }
                         }
@@ -55,7 +63,11 @@ public class MapFragment extends BaseFragment<FragmentMapBinding, MapViewModel> 
     }
 
     @Override
-    protected FragmentMapBinding createBinding(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    protected FragmentMapBinding createBinding(
+            LayoutInflater inflater,
+            ViewGroup container,
+            Bundle savedInstanceState
+    ) {
         return FragmentMapBinding.inflate(inflater, container, false);
     }
 
@@ -72,7 +84,8 @@ public class MapFragment extends BaseFragment<FragmentMapBinding, MapViewModel> 
             Bundle bundle = new Bundle();
             bundle.putString(KEY, s);
             getParentFragmentManager().setFragmentResult(KEY, bundle);
-            NavController navController = NavHostFragment.findNavController(MapFragment.this);
+            NavController navController =
+                    NavHostFragment.findNavController(MapFragment.this);
             navController.popBackStack();
         });
 
@@ -98,7 +111,6 @@ public class MapFragment extends BaseFragment<FragmentMapBinding, MapViewModel> 
         LatLng latLng = viewModel.getLatLngLD().getValue();
         if (latLng != null && googleMap != null) {
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
-
         }
     }
 }

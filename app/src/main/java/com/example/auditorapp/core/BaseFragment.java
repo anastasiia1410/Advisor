@@ -44,8 +44,8 @@ public abstract class BaseFragment<VB extends ViewBinding, VM extends AndroidVie
 
     protected abstract VM createViewModel();
 
-    protected void showToast(String text) {
-        Toast.makeText(requireContext(), text, Toast.LENGTH_LONG)
+    protected void showToast() {
+        Toast.makeText(requireContext(), "Рецензію було успішно видалено", Toast.LENGTH_LONG)
                 .show();
     }
 
@@ -63,6 +63,5 @@ public abstract class BaseFragment<VB extends ViewBinding, VM extends AndroidVie
 
             return insets;
         });
-
     }
 }

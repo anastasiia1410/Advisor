@@ -13,7 +13,6 @@ import java.util.List;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.Disposable;
-import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class ReviewViewModel extends BaseViewModel {
@@ -31,12 +30,7 @@ public class ReviewViewModel extends BaseViewModel {
         Disposable disposable = networkManager.getReviews()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<List<Review>>() {
-                    @Override
-                    public void accept(List<Review> value) throws Throwable {
-                        reviewLD.postValue(value);
-                    }
-                }, throwable -> {
+                .subscribe(reviewLD::postValue, throwable -> {
                     if(throwable instanceof NullPointerException){
                         throwableLD.postValue(throwable);
                     }
@@ -47,9 +41,5 @@ public class ReviewViewModel extends BaseViewModel {
 
     public LiveData<List<Review>> getReviewLD() {
         return reviewLD;
-    }
-
-    public LiveData<Throwable> getThrowableLD() {
-        return throwableLD;
     }
 }
