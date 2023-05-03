@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">AuditorApp</string>
+    <string name="hello">Привіт, я \n<b>Ревізор</b></string>
+    <string name="go">Розпочати</string>
+    <string name="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
+    <string name="authorization_screen">Увійти в \n<b>Ревізор</b></string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="create_new_acc">Немає акаунта?</string>
+    <string name="login">Увійти</string>
+    <string name="no_internet">Нажаль, немає підключення до Інтернету.</string>
+    <string name="send">Відправляємо…</string>
+    <string name="sent">Відправлено</string>
+    <string name="name">Ім\'я</string>
+    <string name="password_repeat">Підтвердити пароль</string>
+    <string name="create">Створити</string>
+    <string name="log">Логін</string>
+    <string name="reviews">Рецензії</string>
+    <string name="drafts">Чернетки</string>
+    <string name="settings">Налаштування</string>
+    <string name="new_review">Нова рецензія</string>
+    <string name="title">Назва</string>
+    <string name="review">Рецензія</string>
+    <string name="make_photo">Зробити фото</string>
+    <string name="send_to_server">Відправити</string>
+    <string name="sending_data">Відправка даних</string>
+    <string name="auto">Автоматичне</string>
+    <string name="everyday">Щоденно</string>
+    <string name="hand_send">Ручне відправлення</string>
+    <string name="account_management">Управління аккаунтом</string>
+    <string name="exit">Вихід</string>
+    <string name="place">Місце</string>
+    <string name="address">Вкажіть адресу</string>
+    <string name="no_address">Адресу не вказано</string>
+
+
+</resources>

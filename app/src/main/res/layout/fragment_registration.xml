@@ -1,0 +1,131 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="32dp"
+        android:text="@string/authorization_screen"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@id/ivImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivArrowBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+        app:layout_constraintTop_toTopOf="@id/tvScreen"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="16dp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginVertical="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvScreen"
+        app:srcCompat="@drawable/splash_screen" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:hint="@string/email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivImage"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginVertical="16dp"
+        android:hint="@string/name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilEmail"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginVertical="16dp"
+        android:hint="@string/password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPasswordRepeat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginVertical="16dp"
+        android:hint="@string/password_repeat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilPassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPasswordRepeat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginVertical="32dp"
+        android:layout_marginHorizontal="16dp"
+        android:text="@string/create"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/black"
+        app:cornerRadius="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
